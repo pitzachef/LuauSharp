@@ -38,3 +38,8 @@
 - Corrected service getter syntax
 - Added proper method call conversion (`.` to `:`)
 - Fixed scoping operator translations
+
+## [1.2.2] - Rewrite
+### Changes
+- Removed catch and fetch
++ Faster compiler
