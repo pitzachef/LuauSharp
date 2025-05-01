@@ -1,34 +1,34 @@
 local _dluau = {
-    -- Core
+    -- Types
     ["int"] = "number",
-    ["float"] = "number",
+    ["float"] = "number", 
     ["double"] = "number",
     ["string"] = "string",
     ["bool"] = "boolean",
     ["void"] = "nil",
     ["object"] = "any",
-    
-    -- Keywords
+
+    -- Keywords  
     ["public"] = "",
     ["private"] = "local",
     ["protected"] = "",
     ["static"] = "",
-    ["class"] = "local %1 = {} %1.__index = %1 function %1.new() local self = setmetatable({}, %1) return self end",
+    ["class"] = "",
     ["interface"] = "",
     ["namespace"] = "",
-    ["using"] = "local %1 = require(game:GetService(\"ReplicatedStorage\").%1)",
+    ["using"] = "local",
     ["new"] = ".new",
     ["this"] = "self",
     ["base"] = "super",
     ["var"] = "local",
     ["const"] = "local",
-    ["import"] = "local %1 = require",
-    
+    ["null"] = "nil",
+
     -- Operators
     ["=="] = "==",
     ["!="] = "~=",
     ["++"] = " += 1",
-    ["--"] = " -= 1",
+    ["--"] = " -= 1", 
     ["+="] = "+=",
     ["-="] = "-=",
     ["*="] = "*=",
@@ -37,9 +37,10 @@ local _dluau = {
     ["&&"] = " and ",
     ["||"] = " or ",
     ["!"] = "not ",
-    ["."] = ":",
-    
-    -- Control
+    ["::"] = ".",
+    ["=>"] = "function(%1) return %2 end",
+
+    -- Flow Control
     ["if"] = "if",
     ["else"] = "else",
     ["else if"] = "elseif",
@@ -52,35 +53,36 @@ local _dluau = {
     ["break"] = "break",
     ["continue"] = "continue",
     ["return"] = "return",
-    
-    -- System
+
+    -- Roblox
+    ["game:GetService"] = "game.GetService",
     ["Console.WriteLine"] = "print",
     ["Console.Write"] = "write",
     ["Console.ReadLine"] = "read",
-    ["Math.Max"] = "math.max",
-    ["Math.Min"] = "math.min",
-    ["Math.Abs"] = "math.abs",
-    ["Math.Round"] = "math.round",
-    ["String.Format"] = "string.format",
-    ["List"] = "table",
-    ["Dictionary"] = "table",
-    ["Array"] = "table",
-    
-    -- Error
-    ["try"] = "local success, err = pcall(function()",
-    ["catch"] = "end) if not success then",
-    ["finally"] = "end",
-    ["throw"] = "error",
-    
-    -- Class 
-    ["get"] = "function %1:get%2() return self._%2 end",
-    ["set"] = "function %1:set%2(value) self._%2 = value end",
-    ["property"] = "function %1:get%2() return self._%2 end function %1:set%2(value) self._%2 = value end",
-    
-    -- patterns
+    [".Kick"] = ":Kick",
+    [".Health"] = ".Health",
+
+    -- Classes/Methods
     ["function(.-)%((.-)%)"] = "function %1(%2)",
     ["class(.-){"] = "local %1 = {} %1.__index = %1 function %1.new() local self = setmetatable({}, %1) return self end",
-    ["=>"] = "function(%1) return %2 end"
+    ["this."] = "self.",
+    ["new "] = "",
+
+    -- Syntax
+    [";"] = "",
+    ["{"] = "then",
+    ["}"] = "end",
+    ["//"] = "--",
+    ["/*"] = "--[[",
+    ["*/"] = "]]",
+
+    -- Collections
+    ["List<"] = "{",
+    [">"] = "}",
+    ["Dictionary<"] = "{",
+    ["Array<"] = "{",
+    ["Add("] = "table.insert(",
+    ["Remove("] = "table.remove("
 }
 
 return _dluau
