@@ -23,7 +23,7 @@ local compiler = loadstring(game:HttpGet("https://raw.githubusercontent.com/pitz
 local compiler = loadstring(game:HttpGet("https://raw.githubusercontent.com/pitzachef/LuauSharp/main/compiler.lua"))()
 
 local csCode = [[
-using ReplicatedStorage;
+using ReplicatedStorage.Plyrlib;
 import Players;
 
 public class Program {
