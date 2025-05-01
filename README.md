@@ -40,5 +40,5 @@ public class Program {
 	Main()
 }
 ]]
-loadstring(compiler(csCode))()
+loadstring(compiler:_f__compile_luau(csCode))()
 ```
